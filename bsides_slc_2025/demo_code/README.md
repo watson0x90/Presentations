@@ -1,4 +1,4 @@
-# 🛡️ BSides SLC 2025 Demo Code
+# 🛡️ Dirty Little DotNet Hooker - BSides SLC 2025 Demo Code
 
 This repository contains demonstration code for the BSides SLC 2025 presentation on dynamic binary instrumentation and hooking techniques using Frida.
 
