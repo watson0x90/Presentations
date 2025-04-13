@@ -2,6 +2,9 @@
  * Enhanced GraphViz CALL Tracing with Stalker
  * -----------------------------------------
  * Produces clean, sequential call flow similar to the original
+ * 
+ * Original: https://github.com/FuzzySecurity/Fermion/blob/master/Examples/graphviz.js
+ * Original Author: @FuzzySec aka b33f  
  */
 
 // Target function to hook
@@ -101,42 +104,6 @@ function parseCallSites(sites) {
     }
 }
 
-// Save GraphViz output to a file
-function saveGraphvizToFile(graphvizContent) {
-    try {
-        // Create a filename based on current time
-        const now = new Date();
-        const timestamp = now.getFullYear() + 
-                        String(now.getMonth() + 1).padStart(2, '0') + 
-                        String(now.getDate()).padStart(2, '0') + '_' + 
-                        String(now.getHours()).padStart(2, '0') + 
-                        String(now.getMinutes()).padStart(2, '0');
-        
-        // Get application name safely
-        let appName = "app";
-        try {
-            appName = Process.enumerateModules()[0].name.split('.')[0].toLowerCase();
-        } catch (e) {
-            // Fallback to safe name
-        }
-        
-        const filename = `${appName}_calltrace_${timestamp}.dot`;
-        const filePath = `/tmp/${filename}`;
-        
-        // Use Frida's file API correctly
-        const file = new File(filePath, "w");
-        file.write(Memory.allocUtf8String(graphvizContent));
-        file.flush();
-        file.close();
-        
-        send(`✅ GraphViz output saved to ${filePath}`);
-        return true;
-    } catch (e) {
-        send(`❌ Error saving GraphViz output: ${e.message}`);
-        return false;
-    }
-}
-
 // Hook the target function
 function hookTargetFunction() {
     // Find function pointer
@@ -190,11 +157,11 @@ function hookTargetFunction() {
                 const graphOutput = parseCallSites(callSites);
                 
                 if (graphOutput) {
-                    // Save to file
-                    saveGraphvizToFile(graphOutput);
-                    
-                    // Also print to console
+                    // Print graph to console
                     send("\n" + graphOutput + "\n");
+                    
+                    // Add message about Sketchviz
+                    send("\n🔗 Visualize this graph by copying the output above and pasting it at https://sketchviz.com/");
                 }
                 
                 // Reset for next time
@@ -203,6 +170,8 @@ function hookTargetFunction() {
                 previousNode = null;
             } else {
                 send("⚠️ No call sites were recorded");
+                                
+                send("\n🔗 To visualize GraphViz output, visit https://sketchviz.com/ and paste the graph output");
             }
         }
     });
