@@ -1,7 +1,10 @@
-# Presentations
-
 ## BSides SLC 2025
 ### Dirtly Little .NET Hooker 
+
+- [Slides](./bsides_slc_2025/2025BSides_Dirty_Little_DotNet_Hooker.pdf)
+- [Demo Code](./bsides_slc_2025/demo_code/)
+
+**Description**
 
 In this presentation, we will delve into the powerful capabilities of Frida, an open-source dynamic instrumentation toolkit. We will specifically focus on its application in hooking .NET applications from a red team perspective. Attendees will learn about the architecture of .NET applications and the challenges associated with reverse engineering and exploitation.
 
