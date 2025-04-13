@@ -55,6 +55,8 @@ This section demonstrates advanced techniques for instrumenting .NET application
 - **04_execute_cmd.js**: Shows how to execute arbitrary commands by hooking .NET methods.
 - **FunctionEnumerator.cs**: C# source for a helper library that enumerates .NET methods and their addresses.
 
+Complete instructions for DirtyLittleDotNetHooker can be found here: (https://github.com/watson0x90/DirtyLittleDotNetHooker)[https://github.com/watson0x90/DirtyLittleDotNetHooker]
+
 ## 🚀 Usage
 
 Each demo directory contains batch files to run the corresponding demo. Most demos target Notepad as a safe process to hook.
