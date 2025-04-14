@@ -75,6 +75,8 @@ These demonstrations are for educational purposes only. The techniques shown cou
 
 - Windows operating system
 - Frida (latest version)
+- Fermion
+  - https://github.com/FuzzySecurity/Fermion
 - Visual Studio Community Edition (for compiling the C# components)
 - Developer Command Prompt to use for `.bat` scripts
   - Part of Visual Studio Community Edition
