@@ -2,6 +2,7 @@
 ### Password!AtTheDisco
 
 - [Project](https://github.com/watson0x90/PasswordAtTheDisco)
+- [Slides](./saintcon_2025/20251025_SaintCon_PasswordAtTheDisco.pdf)
 
 #### Description
 
